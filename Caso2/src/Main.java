@@ -1,11 +1,13 @@
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
-
+        
         while (!salir) {
             System.out.println("\n==== MENÚ ====");
             System.out.println("1. Generar archivo de referencias");
@@ -20,7 +22,17 @@ public class Main {
                     GeneradorReferencias.ejecutar(scanner);
                     break;
                 case "2":
-                    System.out.println("Opción aún no implementada.");
+                    System.out.print("Ingrese el número de marcos en memoria: ");
+                    int numMarcos = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Ingrese el nombre del archivo de referencias: ");
+                    String nombreArchivo = scanner.nextLine();
+                    Memoria memoria = new Memoria(numMarcos);
+                    Lector l = new Lector(memoria, nombreArchivo);
+                    Actualizador a = new Actualizador(memoria);
+                    l.start();
+                    a.start();
+                    
                     break;
                 case "3":
                     salir = true;
