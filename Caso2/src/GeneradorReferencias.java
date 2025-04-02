@@ -9,10 +9,10 @@ public class GeneradorReferencias {
             int tamPagina = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.print("Ingrese el nombre del archivo BMP (incluya la extensión): ");
+            System.out.print("Ingrese el nombre del archivo BMP (sin la extensión): ");
             String nombreArchivo = scanner.nextLine();
 
-            String rutaRelativa = "Caso2/src/" + nombreArchivo;
+            String rutaRelativa = "Caso2/src/" + nombreArchivo + ".bmp";
 
             File archivo = new File(rutaRelativa);
 
