@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,7 +32,17 @@ public class Main {
 
                     break;
                 case "2":
-                    System.out.println("Opción no implementada");
+                    System.out.print("Ingrese el número de marcos en memoria: ");
+                    int numMarcos = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Ingrese el nombre del archivo de referencias: ");
+                    String nombreArchivo = "Caso2/"+scanner.nextLine();
+                    System.out.println(new File(nombreArchivo).getAbsolutePath());
+                    Memoria memoria = new Memoria(numMarcos);
+                    Lector l = new Lector(memoria, nombreArchivo);
+                    Actualizador a = new Actualizador(memoria);
+                    l.start();
+                    a.start();
 
                     break;
                 case "3":
