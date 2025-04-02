@@ -21,22 +21,14 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    System.out.println("Opción de Generar referencias:");
-                    System.out.println("Ingrese el tamaño de página:");
-                    int tamPagina = scanner.nextInt();
-                    System.out.println("Ingrese el nombre del archivo de la imagen incluyendo la extencion:");
-                    String nomImagen = scanner.next();
-                    GeneradorReferencias generadorReferencias = new GeneradorReferencias(tamPagina, nomImagen);
-                    String nombreArchivoFinal = generadorReferencias.generarReferencias();
-                    System.out.println("El path y nombre del archivo es: " + nombreArchivoFinal + "");
-
+                    GeneradorReferencias.ejecutar(scanner);
                     break;
                 case "2":
                     System.out.print("Ingrese el número de marcos en memoria: ");
                     int numMarcos = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.print("Ingrese el nombre del archivo de referencias: ");
-                    String nombreArchivo = "Caso2/"+scanner.nextLine();
+                    System.out.print("Ingrese el nombre del archivo de referencias (sin el txt): ");
+                    String nombreArchivo = scanner.nextLine()+".txt";
                     System.out.println(new File(nombreArchivo).getAbsolutePath());
                     Memoria memoria = new Memoria(numMarcos);
                     Lector l = new Lector(memoria, nombreArchivo);
