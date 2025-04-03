@@ -38,7 +38,7 @@ public class Lector extends Thread {
         }
         memoria.mostrarEstadisticas();
         long finTiempo = System.nanoTime();
-        double tiempo = (finTiempo-inicioTiempo);
-        System.out.println("Tiempo en nanosegundos: "+ tiempo);
+        double tiempo = (finTiempo-inicioTiempo)/1e9;
+        System.out.println("Tiempo en segundos: "+ tiempo);
     }
 }
