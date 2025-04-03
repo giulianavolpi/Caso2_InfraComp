@@ -29,7 +29,6 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Ingrese el nombre del archivo de referencias (sin el txt): ");
                     String nombreArchivo = scanner.nextLine()+".txt";
-                    System.out.println(new File(nombreArchivo).getAbsolutePath());
                     Memoria memoria = new Memoria(numMarcos);
                     Lector l = new Lector(memoria, nombreArchivo);
                     Actualizador a = new Actualizador(memoria);

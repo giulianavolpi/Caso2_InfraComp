@@ -14,6 +14,7 @@ public class Lector extends Thread {
 
     @Override
     public void run(){
+        long inicioTiempo = System.nanoTime();
         int contador = 0;
         try(BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))){
             String line = "";
@@ -36,5 +37,8 @@ public class Lector extends Thread {
             e.printStackTrace();
         }
         memoria.mostrarEstadisticas();
+        long finTiempo = System.nanoTime();
+        double tiempo = (finTiempo-inicioTiempo);
+        System.out.println("Tiempo en nanosegundos: "+ tiempo);
     }
 }
